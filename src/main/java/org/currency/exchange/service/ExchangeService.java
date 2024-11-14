@@ -75,9 +75,8 @@ public class ExchangeService {
         List<Map<LocalDate, RateDetailDTO>> rates = new ArrayList<>();
         if(rateList!=null){
             exchangeRateResponseDTO.setSource("USD");
-            Map<LocalDate, RateDetailDTO> ratesMap = null;
+            Map<LocalDate, RateDetailDTO> ratesMap = new HashMap<>();;
             for(Rate rate:rateList){
-                ratesMap = new HashMap<>();
                 RateDetailDTO rateDetailDTO = new RateDetailDTO();
                 rateDetailDTO.setCurrency(rate.getCurrency());
                 rateDetailDTO.setRateValue(rate.getRateValue());
