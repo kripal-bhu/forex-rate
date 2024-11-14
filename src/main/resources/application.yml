@@ -1,0 +1,35 @@
+#application name
+spring:
+  application:
+    name: exchange
+    flyway:
+      enabled: true
+      locations: classpath:db/migration
+
+#database connection properties
+  datasource:
+    url: jdbc:h2:file:/Users/kripalyadav/dbtest;AUTO_SERVER=TRUE   # In-memory H2 database
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    show-sql: true                    # Show SQL queries
+    properties:
+      hibernate:
+        format_sql: true
+        show-sql: true               # Format SQL queries (optional, for readability)
+        type: trace
+  h2:
+    console:
+      enabled: true   # Enable H2 console in the browser
+      path: /h2-console  # Access path for H2 console
+
+
+api_endpoints:
+  exchange_rate_on_date:
+    url: "https://api.frankfurter.app/"
+    description: "Exchange rate for a specific date (March 18, 2024) with conversion to USD."
+  latest_exchange_rate:
+    url: "https://api.frankfurter.app/latest"
+    description: "Latest exchange rate data."
+
